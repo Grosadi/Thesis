@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Thesis.AddFacePage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="#2196F3" Margin="0, -30, 0, 0" CornerRadius="0">
+                <Label Text="Register new Face" HorizontalTextAlignment="Center" TextColor="White" FontSize="30"/>
+            </Frame>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="3*"/>
+                </Grid.RowDefinitions>
+            </Grid>
+            <Entry x:Name="FaceName" Placeholder="Your Name" HorizontalTextAlignment="Center" BackgroundColor="LightBlue" HorizontalOptions="Center" WidthRequest="200" Grid.Row="1"/>
+            <Button Clicked="TakePhoto_Button_Clicked" Text="Take Photo" TextColor="LightBlue" Grid.Row="2" Margin="50, 0, 50, 20"/>
+            <Image x:Name="PhotoImage" Grid.Row="3"/>
+            <Button x:Name="RegisterBtn" Clicked="RegisterFace_Button_Clicked" Text="Register" TextColor="LightBlue"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
