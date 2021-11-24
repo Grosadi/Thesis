@@ -2,15 +2,7 @@
 using Plugin.Fingerprint.Abstractions;
 using System;
 using Xamarin.Forms;
-using Plugin.Media.Abstractions;
-using System.Linq;
-using Microsoft.Azure.CognitiveServices.Vision.Face;
-using System.Net.Http;
-using Thesis.Service;
-using System.IO;
-using Xamarin.Essentials;
 using Xamarin.Forms.Xaml;
-using Thesis.ViewModels;
 using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 
 namespace Thesis
@@ -50,12 +42,12 @@ namespace Thesis
 
         private async void DetectFace_Button_Clicked(object sender, EventArgs e)
         {
-            var photo = await FaceService.GetMediaFileFromCamera();
+            var photo = await Service.Service.GetMediaFileFromCamera();
             var person = new Person();
 
             try
             {
-                person = await FaceService.Identify(photo);
+                person = await Service.Service.Identify(photo);
             }
             catch(Exception ex)
             {

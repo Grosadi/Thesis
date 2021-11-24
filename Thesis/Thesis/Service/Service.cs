@@ -3,15 +3,13 @@ using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
 using Plugin.Media;
 using Plugin.Media.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Thesis.Service
 {
-    public static class FaceService
+    public static class Service
     {        
         private static FaceClient Client => new FaceClient(new ApiKeyServiceClientCredentials("ef50ac0be78e420cbf3960ac8843ff4f"), new HttpClient(), false) { Endpoint = "https://gadam.cognitiveservices.azure.com/" };        
         private static string _personGroupId => "person_group";
