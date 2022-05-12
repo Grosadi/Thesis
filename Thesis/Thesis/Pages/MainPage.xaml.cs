@@ -12,7 +12,7 @@ namespace Thesis
     {        
         public MainPage()
         {           
-            InitializeComponent();            
+            InitializeComponent();
         }
 
         private async void Fingerprint_Button_Clicked(object sender, EventArgs e)
@@ -25,14 +25,19 @@ namespace Thesis
 
                 var result = await CrossFingerprint.Current.AuthenticateAsync(conf);
 
+                var succes = false;
+
                 if (result.Authenticated)
                 {
-                    await DisplayAlert("Succes", "Authenticaton succesful!", "Ok");
+                    succes = true;
+                    await DisplayAlert("Succes", "Authenticaton succesful!", "Ok");                    
                 }
                 else
                 {
                     await DisplayAlert("Sorry", "Authenticaton failed!", "Ok");
                 }
+
+                Service.Service.AddFingerprintToDatabase(succes);
             }
             else
             {
@@ -44,6 +49,7 @@ namespace Thesis
         {
             var photo = await Service.Service.GetMediaFileFromCamera();
             var person = new Person();
+            var succes = false;
 
             try
             {
@@ -56,17 +62,21 @@ namespace Thesis
 
             if (person.Name != null)
             {
-                await DisplayAlert("Identification Succesful!", $"Hello, {person.Name} !", "Ok");
-            }            
-            else
-            {
-                await DisplayAlert("Something went wrong", "Identification unsuccesful!", "Ok");
+                succes = true;
+                await DisplayAlert("Identification Succesful!", $"Hello, {person.Name} !", "Ok");                
             }
+
+            Service.Service.AddFaceIdToDatabase(person.Name, succes);
         }       
 
         private async void AddFace_Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new AddFacePage());
+        }
+
+        private async void ExportData_Button_Clicked(object sender, EventArgs e)
+        {
+            await Services.DatabaseService.CreateOutputFile();
         }
     }
 }

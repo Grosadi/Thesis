@@ -43,10 +43,10 @@ namespace Thesis
                 await DisplayAlert("Great!", "Face added to Azure!", "Ok");
 
                 await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
-             }
+            }
             catch(Exception)
-            {
-                await DisplayAlert ("Sorry", "Something went wrong!", "Ok");
+            {                              
+               await DisplayAlert ("Sorry", "Something went wrong!", "Ok");                
             }
         }
     }

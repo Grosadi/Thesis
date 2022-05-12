@@ -58,11 +58,8 @@
     <Reference Include="System.Numerics.Vectors" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="AsyncAwaitBestPractices.MVVM">
-      <Version>6.0.3</Version>
-    </PackageReference>
     <PackageReference Include="Microsoft.Azure.CognitiveServices.Vision.Face">
-      <Version>2.8.0-preview.1</Version>
+      <Version>2.8.0-preview.2</Version>
     </PackageReference>
     <PackageReference Include="Plugin.CurrentActivity">
       <Version>2.1.0.4</Version>

@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:Thesis.ViewModels"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Thesis.MainPage">
     <StackLayout>
         <Frame BackgroundColor="#2196F3" Padding="20" CornerRadius="0">
@@ -11,8 +11,9 @@
         <Button Clicked="Fingerprint_Button_Clicked" Text="Authenticate" TextColor="LightBlue" Grid.Row="2" />
         <Label Text="Authenticate via FaceId" TextColor="LightBlue" FontSize="Title" Grid.Row="3" Margin="70, 50, 0, 20"/>
         <Button Clicked="DetectFace_Button_Clicked" Text="Detect Face" TextColor="LightBlue" Grid.Row="4"/>
-        <Label Text="Add new Face to Azure" TextColor="LightBlue" FontSize="Title" Margin="70, 50, 0, 0"/>
-        <Button Clicked="AddFace_Button_Clicked" Text="Add new Face" TextColor="LightBlue" Margin="0, 50, 0, 0"/>
+        <Label Text="Add new Face to Azure" TextColor="LightBlue" FontSize="Title" Margin="70, 30, 0, 0"/>
+        <Button Clicked="AddFace_Button_Clicked" Text="Add new Face" TextColor="LightBlue" Margin="0, 30, 0, 0"/>
+        <Button Clicked="ExportData_Button_Clicked" Text="Export Data" IsVisible="False" TextColor="LightBlue"/>
     </StackLayout>
 
 </ContentPage>
