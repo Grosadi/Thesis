@@ -1,13 +1,5 @@
-﻿using Microsoft.Azure.CognitiveServices.Vision.Face;
-using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
-using Plugin.Media.Abstractions;
+﻿using Plugin.Media.Abstractions;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
-using Thesis.Service;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -31,7 +23,7 @@ namespace Thesis
             }
             else
             {
-                Photo = await FaceService.GetMediaFileFromCamera();
+                Photo = await Service.Service.GetMediaFileFromCamera();
 
                 if (Photo != null)
                 {
@@ -46,15 +38,15 @@ namespace Thesis
             try
             {
                 var name = FaceName.Text;
-                await FaceService.AddFace(name, Photo);
+                await Service.Service.AddFace(name, Photo);
 
                 await DisplayAlert("Great!", "Face added to Azure!", "Ok");
 
                 await Application.Current.MainPage.Navigation.PushAsync(new MainPage());
-             }
+            }
             catch(Exception)
-            {
-                await DisplayAlert ("Sorry", "Something went wrong!", "Ok");
+            {                              
+               await DisplayAlert ("Sorry", "Something went wrong!", "Ok");                
             }
         }
     }
